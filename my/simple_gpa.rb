@@ -1,3 +1,5 @@
+#Simple GPA by Vladislav Trotsenko
+
 results = Array.new
 result = nil
 
