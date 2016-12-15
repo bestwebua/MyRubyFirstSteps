@@ -1,4 +1,5 @@
-#Simple GPA by Vladislav Trotsenko
+# Simple GPA by Vladislav Trotsenko
+# The program calculates the GPA
 
 results = Array.new
 result = nil
