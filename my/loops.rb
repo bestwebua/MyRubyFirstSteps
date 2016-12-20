@@ -36,8 +36,6 @@ i.each do |i|
 end
 =end
 
-
-
 #6 using times
 i = 0
 50.times {puts i += 1}
