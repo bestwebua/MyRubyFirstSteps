@@ -1,4 +1,4 @@
-#6 solutions of loops exercises
+#My 6 solutions of loops exercises
 
 #1 using while
 i = 1
