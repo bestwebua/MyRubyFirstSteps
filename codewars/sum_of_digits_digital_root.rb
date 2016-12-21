@@ -47,7 +47,7 @@ digital_root(493193)
 Super refactoring code!
 
 def digital_root(n)
-  n < 10 ? (puts n) : digital_root(n / 10 + n % 10)
+  n < 10 ? n : digital_root(n / 10 + n % 10)
 end
 
 =end
