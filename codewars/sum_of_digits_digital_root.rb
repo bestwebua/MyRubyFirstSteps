@@ -41,3 +41,13 @@ digital_root(16)
 digital_root(942)
 digital_root(132189)
 digital_root(493193)
+
+
+=begin
+Super refactoring code!
+
+def digital_root(n)
+  n < 10 ? (puts n) : digital_root(n / 10 + n % 10)
+end
+
+=end
