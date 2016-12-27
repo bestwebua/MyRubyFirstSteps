@@ -14,6 +14,7 @@ string is changed.
 
 title_case('a clash of THE KINGS', 'a an the of') # should return: 'A Clash of the Kings'
 title_case('the quick brown fox') # should return: 'The Quick Brown Fox'
+
 =end
 
 def title_case(title, minor_words=0)
