@@ -19,16 +19,15 @@ title_case('the quick brown fox') # should return: 'The Quick Brown Fox'
 def title_case(title, minor_words=0)
 
 	title.capitalize!
-	title = title.split(' ')
+	title = title.split(' ') #converting string to array
 	#title[0].capitalize! #working in ruby 2.3.1p112 only, otherwise using
 	#title.capitalize! in line 21.
 
-
-	minor_words == 0 ? (minor_words = Array.new) : (minor_words = minor_words.split (' '))
+	minor_words == 0 ? (minor_words = Array.new) : (minor_words = minor_words.downcase.split (' '))
 
 	title.drop(1).collect do |word| word.capitalize! unless minor_words.include?(word); end
-	title = title.join(' ')
+	title = title.join(' ')	#converting an array to string
 
 end
 
-title_case('THE WIND IN THE WILLOWS', 'the in')
+title_case('A bc', 'BC')
