@@ -20,7 +20,7 @@ def matrixAddition(a, b)
   (Matrix[*a] + Matrix[*b]).to_a
 end
 
-p matrixAddition([[1, 2], [1, 2]], [[2, 3], [2, 3]])
+matrixAddition([[1, 2], [1, 2]], [[2, 3], [2, 3]])
 
 
 =begin
