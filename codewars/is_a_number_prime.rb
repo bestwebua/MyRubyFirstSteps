@@ -12,7 +12,17 @@ isPrime(5) => true
 
 
 def isPrime(num)
-  (num.is_a?(Fixnum || Bignum) && (num > 1) && (num%2 == 1)) ? true : false
+  num.is_a?(Fixnum || Bignum) && num > 1 && (1..num/2).select {|n| num % n == 0}.size == 1 ? true : false
 end
 
-isPrime(11111)
+isPrime(11)
+
+=begin
+Super refactoring code:
+
+require 'prime'
+def isPrime(num)
+  num.prime?
+end
+
+=end
