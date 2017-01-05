@@ -17,8 +17,6 @@ end
 
 isPrime(11)
 
-p 11/2
-
 =begin
 Super refactoring code:
 
