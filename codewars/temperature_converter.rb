@@ -53,6 +53,18 @@ convertTemp(100, "C", "F")
 
 
 =begin
-
-
+Super refactoring code:
+def convertTemp temp, fs, ts
+  (as,ao),(bs,bo) = {
+    'De' => [-1, 0],
+    'N'  => [11/50.0,  33],
+    'Ro' => [ 7/20.0,  60],
+    'Re' => [ 8/15.0,  80],
+    'C'  => [ 2/ 3.0, 100],
+    'K'  => [ 2/ 3.0, 373.15],
+    'F'  => [ 6/ 5.0, 212],
+    'R'  => [ 6/ 5.0, 671.67]
+  }.fetch_values fs, ts
+  ((temp-ao)*bs/as + bo).round
+end
 =end
