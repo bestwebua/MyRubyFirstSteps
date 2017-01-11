@@ -22,3 +22,10 @@ def generateHashtag(str)
 end
 
 generateHashtag('cool ruby hash tag function')
+
+=begin
+Super refactoring code:
+def generateHashtag(str)
+  "##{str.split.map(&:capitalize).join}"[/#.{2,139}$/] or false
+end
+=end
