@@ -6,4 +6,4 @@ class String
   end
 end
 
-'camel case method'.camelcase
+p 'camel case method'.camelcase
