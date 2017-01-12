@@ -25,8 +25,13 @@ end
 duplicate_count('aabbc11')
 
 =begin
-Super refactoring code:
+Super refactoring code #1:
 def duplicate_count(text)
   text.upcase.chars.uniq.count { |c| text.upcase.count(c) > 1 }
+end
+
+Super refactoring code #2:
+def duplicate_count text
+  text.upcase.scan(/(.)(?=.*\1)/).uniq.size
 end
 =end
