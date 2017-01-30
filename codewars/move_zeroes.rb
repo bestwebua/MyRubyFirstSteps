@@ -15,7 +15,7 @@ Don't use .sort & .sort! methods.
 def move_zeroes(*nums)
     size = nums.size
     count = 0
-
+#Bubble sort loop
   loop do swap = false
       (size-1).times do |i|
         if nums[i] > nums[i+1]
@@ -25,14 +25,14 @@ def move_zeroes(*nums)
       end
     break if not swap
   end
-
+#WithoutZeros sort loop
     size.times do |i|
       if nums[i] != 0
             nums[count] = nums[i]
             count += 1
         end
     end
-
+#FillWithZeroes loop
     while count < size
         nums[count] = 0
         count += 1
@@ -55,4 +55,29 @@ def move_zeroes(*nums)
   }
   nums
 end
+Old code before refactoring 1:
+def move_zeroes(*nums)
+  nums = nums.sort!
+  nums.each do |i|
+    if i == 0
+      nums.shift
+      nums.push i
+    end
+  end
+end
+
+Old code before refactoring 2:
+def move_zeroes(*nums)
+nums = nums.select { |x| x!=0 }.sort + nums.select { |x| x==0 }
+end
+
+#Bubble sort loop for numerical series with while
+  swap = true
+  while swap
+    swap = false
+      (size-1).times do |i|
+        swap |= nums[i] > nums[i+1] 
+        nums[i], nums[i+1] = nums[i+1], nums[i] if nums[i] > nums[i+1]
+      end
+  end
 =end
