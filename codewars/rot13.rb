@@ -19,7 +19,7 @@ def rot13(message)
   message.tr('A-Za-z', 'N-ZA-Mn-za-m')
 end
 
-rot13("EBG13 rknzcyr.")
+rot13("Hello! It's my ruby ROT13 method!!!")
 
 =begin
 def rot13(message)
