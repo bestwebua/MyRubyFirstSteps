@@ -71,6 +71,10 @@ def move_zeroes(*nums)
 nums = nums.select { |x| x!=0 }.sort + nums.select { |x| x==0 }
 end
 
+Old code before refactoring 3:
+def move_zeroes(*nums) i=0; nums.select{|a| i+=1 if a==0; a!=0}.sort+[0]*i end
+def move_zeroes(*nums) nums.select{|a| a!=0}.sort+[0]*nums.count(0) end
+
 #Bubble sort loop for numerical series with while
   swap = true
   while swap
