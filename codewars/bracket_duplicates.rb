@@ -1,5 +1,5 @@
 =begin
-Bracket Duplicates b Vladislav Trotsenko.
+Bracket Duplicates by Vladislav Trotsenko.
 
 Create a program that will take in a string as input and, if there are duplicates
 of more than two alphabetical characters in the string, returns the string with
