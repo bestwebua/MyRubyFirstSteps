@@ -13,7 +13,7 @@ def string_to_int_list(s)
   s.scan(/-?\d+/).map(&:to_i)
 end
 
-p string_to_int_list('1,,,-2,3,4,5')
+string_to_int_list('1,,,-2,3,4,5')
 
 =begin
 Before refactoring:
