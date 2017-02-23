@@ -12,7 +12,7 @@ def my_first_kata(a, b)
   a%b+b%a rescue false
 end
 
-my_first_kata(1, 'a')
+p my_first_kata(1, 'a')
 
 =begin
 Before refactoring code:
