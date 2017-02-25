@@ -13,13 +13,17 @@ You will return:
 =end
 
 def the_biggest_search_keys(*keys)
-  keys.select { |key| key.size == keys.map(&:size).max }.sort.map { |i| "'#{i}'" }.join(', ')
+  keys.group_by(&:size).max.last.sort.map { |i| "'#{i}'" }.join(', ')
 end
 
 the_biggest_search_keys('small keyword', 'how to coding?', 'very nice kata', 'a lot of keys', 'I like Ruby!!!')
 
 =begin
 Before refactoring code:
+def the_biggest_search_keys(*keys)
+  keys.select { |key| key.size == keys.map(&:size).max }.sort.map { |i| "'#{i}'" }.join(', ')
+end
+
 def the_biggest_search_keys(*keys)
   keys.select { |key| key.size == keys.inject { |memo, key| memo.size>key.size ? memo : key }.size }.sort.map { |i| "'" << i << "'" }.join(', ')
 end
@@ -33,5 +37,21 @@ def the_biggest_search_keys (*keys)
   	  r << k; end
     end
   "'"+r.sort().join("', '")+"'"
+end
+
+Test cases:
+describe "Basic tests" do
+  Test.assert_equals(the_biggest_search_keys('key1', 'key22', 'key333'), "'key333'")
+  Test.assert_equals(the_biggest_search_keys('coding', 'sorting', 'tryruby'), "'sorting', 'tryruby'")
+  Test.assert_equals(the_biggest_search_keys('small keyword', 'how to coding?', 'very nice kata', 'a lot of keys', 'I like Ruby!!!'), "'I like Ruby!!!', 'how to coding?', 'very nice kata'")
+end
+
+describe "Random tests" do
+  Test.random_number.times do
+    first, second, third = Test.random_token, Test.random_token, Test.random_token
+      keys = [first, second, third]
+        result = keys.select { |key| key.size == keys.map(&:size).max }.sort.map { |i| "'#{i}'" }.join(', ')
+    Test.assert_equals(the_biggest_search_keys(first, second, third), result)
+  end
 end
 =end
