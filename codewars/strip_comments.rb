@@ -1,7 +1,6 @@
 #https://www.codewars.com/kata/strip-comments/ruby
 
 def solution(input, markers)
-  p input.scan(/[:upper:]/)
+  p input.gsub(/#{markers}[\w]*/, '')
 end
-
-solution('textD', '["#", "!"]')
+solution("apples, pears # and bananas\ngrapes\nbananas !apples", '["!"]')
