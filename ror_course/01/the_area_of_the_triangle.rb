@@ -10,11 +10,6 @@ def triangle_area(bottom, height)
 end
 
 bottom, height = '', ''
-
-puts 'Type bottom length:'
-bottom = gets.chomp while bottom.match(/\D/) || bottom == ''
-
-puts 'Type height of triangle:'
-height = gets.chomp while height.match(/\D/) || height == ''
-
+puts 'Type bottom length (nums only):'; bottom = gets.chomp while bottom.match(/\D/) || bottom == ''
+puts 'Type height of triangle (nums only):'; height = gets.chomp while height.match(/\D/) || height == ''
 puts triangle_area(bottom, height)
