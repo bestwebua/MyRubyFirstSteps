@@ -13,7 +13,7 @@ class String
   end
 end
 
-p '127.0.0.1'.ipv4_address?
+'127.0.0.1'.ipv4_address?
 
 =begin
 Before refactoring code #3:
