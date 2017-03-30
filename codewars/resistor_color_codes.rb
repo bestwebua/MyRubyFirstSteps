@@ -45,4 +45,4 @@ def decode_resistor_colors(bands)
     "#{value_result.sub(/\.0/, '')} ohms, #{tolerance}%"
 end
 
-p decode_resistor_colors('brown black green silver')
+decode_resistor_colors('brown black green silver')
