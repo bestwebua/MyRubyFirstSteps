@@ -8,14 +8,21 @@ in canonical representation, so no leading 0s, spaces etc.
 
 class String
   def ipv4_address?
-  	ip_range = /(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])/
-    !!self[/\A(#{ip_range}\.){3}#{ip_range}\z/]
+    !!self[/\A((1\d|[1-9]|2[0-4])?\d|25[0-5])(\.\g<1>){3}\z/] #\g<1> means to re-run the first group's regex again
   end
 end
 
 '127.0.0.1'.ipv4_address?
 
 =begin
+Before refactoring code #4:
+class String
+  def ipv4_address?
+    ip_range = /(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])/
+    !!self[/\A(#{ip_range}\.){3}#{ip_range}\z/]
+  end
+end
+
 Before refactoring code #3:
 class String
   def ipv4_address?
