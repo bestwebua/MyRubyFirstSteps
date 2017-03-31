@@ -19,3 +19,10 @@ def proofread(string)
 end
 
 proofread("THe neIghBour's ceiLing FEll on His Head. The WiEght of It crusHed him To thE gROuNd.")
+
+=begin
+Super refactoring code:
+def proofread(string)
+  string.gsub(/ie/i,'ei').gsub /\w[^.]+/, &:capitalize
+end
+=end
