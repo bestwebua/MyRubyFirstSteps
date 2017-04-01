@@ -39,7 +39,7 @@ def make_change(amount)
   coins_by_par
 end
 
-p make_change(99)
+make_change(99)
 
 =begin
 Super refactoring code:
