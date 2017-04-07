@@ -14,17 +14,6 @@ cents parameter is less than or equal to 0.
 =end
 
 def change(cents)
-  a = [25, 10, 5, 1].map do |coin|
-    n, cents = (cents < 0 ? 0 : cents).divmod(coin)
-    [coin, n]
-  end
-  Hash[a]
-end
-
-p change(6384798272555335)
-
-=begin
-def change(cents)
   cents = 0 if cents.negative?
     coins = {25=>0, 10=>0, 5=>0, 1=>0}
       until cents==0
@@ -33,6 +22,18 @@ def change(cents)
         cents%max_coin == 0 ? cents-=cents : cents=cents%max_coin
       end
   coins
+end
+
+change(6384798272555335)
+
+=begin
+Super refactoring code:
+def change(cents)
+  a = [25, 10, 5, 1].map do |coin|
+    n, cents = (cents < 0 ? 0 : cents).divmod(coin)
+    [coin, n]
+  end
+  Hash[a]
 end
 
 Super refactoring code:
