@@ -1,8 +1,13 @@
+
 def next_bigger(n)
-  arr = n.to_s.chars.reverse
+  chars = n.to_s.chars
+  (0..chars.length-2).reverse_each do |i|
+    puts i
+     end
+
 end
 
-p next_bigger(2017)
+p next_bigger(144)
 
 
 =begin
