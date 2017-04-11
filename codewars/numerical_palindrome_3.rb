@@ -30,7 +30,7 @@ return 'Not valid' unless num.is_a?(Integer) && num > 0
   result.size
 end
 
-palindrome(141221001)
+palindrome(10015885)
 
 =begin
 Super refactoring code:
