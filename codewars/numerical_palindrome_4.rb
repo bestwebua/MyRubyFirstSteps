@@ -58,7 +58,7 @@ Before refactoring code:
 def palindrome(num)
   return 'Not valid' unless num.is_a?(Integer) && num.positive?
     unless num.palindrome?
-      lesser, greater = num, num
+      lesser = greater = num
   	    lesser-=1 until lesser.palindrome?
   	    greater+=1 until greater.palindrome?
   	  num = case
