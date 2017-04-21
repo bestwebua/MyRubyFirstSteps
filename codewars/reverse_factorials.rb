@@ -17,15 +17,22 @@ So, 120 will return 5! 24 will return 4! 150 will return 'None'.
 
 def reverse_factorial(num)
   n = factorial = 0
+    n+=1 and factorial = (1..n).inject(1, :*) while factorial < num
+  num == factorial ? "#{n}!" : 'None'
+end
+
+p reverse_factorial(120)
+
+=begin
+Before refactoring code:
+def reverse_factorial(num)
+  n = factorial = 0
     until factorial >= num
       n+=1; factorial = (1..n).inject(1, :*)
     end
   num == factorial ? "#{n}!" : 'None'
 end
 
-reverse_factorial(120)
-
-=begin
 Super refactoring code:
 def reverse_factorial(num)
   "#{(1..num).find{|i|return 'None' unless num%i==0;(num/=i)==1}}!"
