@@ -1,5 +1,5 @@
 =begin
-Fibonacci, Tribonacci and friends by Vladislav Trotsenko
+Fibonacci, Tribonacci and friends by Vladislav Trotsenko.
 
 Well, time to expand the family a little more: think of a Quadribonacci starting with
 a signature of 4 elements and each following element is the sum of the 4 previous,
