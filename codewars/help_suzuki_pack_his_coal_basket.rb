@@ -4,8 +4,7 @@ Help Suzuki pack his coal basket! by Vladislav Trotsenko.
 =end
 def pack_basket(basket,pile)
 	pile = pile.scan(/\d+/).map(&:to_i).sort.keep_if { |i| i <= basket }
-
-	result = []
+		result = []
 
 	
 
