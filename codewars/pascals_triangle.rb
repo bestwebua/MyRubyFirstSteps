@@ -8,7 +8,7 @@ def pascalsTriangle(n)
     until result.size == n
       
       
-	  step+=1
+    step+=1
     end
   result
 end

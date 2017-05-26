@@ -7,7 +7,7 @@ def josephus(items,k)
   result = []
   k-=1
   items.each_with_index do |item, index|
-  	result << item if index == k
+    result << item if index == k
   end
   result
 end
