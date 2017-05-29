@@ -19,8 +19,7 @@ def find_outlier(integers)
   integers.partition(&:even?).find(&:one?).first
 end
 
-p find_outlier([0, 1, 2,3,4,5,6,6,7,8,9,0,10,11])
-
+find_outlier([160, 3, 1719, 19, 11, 13, -21])
 
 =begin
 def find_outlier(integers)
