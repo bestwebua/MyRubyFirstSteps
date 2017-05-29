@@ -22,7 +22,6 @@ end
 
 findWord('og', ["elf", "bog creature", "bee", "milk", "FROGS"])
 
-
 =begin
 #Before refactoring code 2
 def findWord(query, array_of_strings)
