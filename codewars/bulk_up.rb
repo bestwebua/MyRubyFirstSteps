@@ -56,6 +56,6 @@ def bulk(arr)
   "Total proteins: #{proteins.to_i_if_whole} grams, Total calories: #{calories.to_i_if_whole}"
 end
 
-p bulk([])
-p bulk(["200g pork"])
-p bulk(["150g elk, 325g tofu, 150g watermelon", "75g pork, 50g mushrooms, 75g kiwi", "275g rabbit, 325g broccoli, 100g cherries", "225g duck, 200g potatoes, 175g parmesan, 25g wine", "225g rabbit, 125g broccoli"])
+bulk([])
+bulk(["200g pork"])
+bulk(["150g elk, 325g tofu, 150g watermelon", "75g pork, 50g mushrooms, 75g kiwi", "275g rabbit, 325g broccoli, 100g cherries", "225g duck, 200g potatoes, 175g parmesan, 25g wine", "225g rabbit, 125g broccoli"])
