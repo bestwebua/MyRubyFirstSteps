@@ -1,2 +1,2 @@
 # MyRubyFirstSteps
-This is my first repo with little bit samples of ruby code.
+This is first repo with little bit samples of my ruby code.
