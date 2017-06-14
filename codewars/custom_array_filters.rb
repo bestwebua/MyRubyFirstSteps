@@ -13,7 +13,7 @@ in_range  # [1,2,3,4,5].in_range(1..3) should return [1,2,3]
 
 class Array
   def integers(&proc)
-    select { |i| i.is_a?(Integer) }.select &proc
+    select { |i| i.is_a?(Integer) }.select &proc  #conversion of proc into block
   end
   def even
     integers(&:even?)
