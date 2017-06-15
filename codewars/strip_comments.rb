@@ -1,6 +1,9 @@
 #https://www.codewars.com/kata/strip-comments/ruby
 
 def solution(input, markers)
-  p input.gsub(/#{markers}[\w]*/, '')
+  markers = markers.map { |i| i.insert(0,"\\") }.join('|')
+    puts "#{markers}"
+  input.gsub(/ ?(\#|\!)(.)+/, '')
 end
-solution("apples, pears # and bananas\ngrapes\nbananas !apples", '["!"]')
+
+p solution("apples, pears # and bananas\ngrapes\nbananas !apples", ['#', '!'])

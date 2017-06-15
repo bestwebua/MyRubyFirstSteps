@@ -27,7 +27,7 @@ class GroupByDifference
   end
   
   def find(difference)
-    @numbers.select { |n| @numbers.count { |i| (i-n).abs <= difference } > 1 }
+    @numbers.select { |n| @numbers.count { |i| p i-n; (i-n).abs <= difference } > 1 }
   end
 end
 
