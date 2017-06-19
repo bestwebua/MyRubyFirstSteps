@@ -17,5 +17,5 @@ end
 
 puts "Select months by total days.\nEnter a number from 28 to 31:"
 total_days = ''
-  total_days = gets.chomp until !!(total_days.match(/\A(28|3[0-1])\z/))
+  total_days = gets.chomp until total_days.match(/\A(28|3[0-1])\z/)
 puts months_selector(total_days)
