@@ -2,7 +2,7 @@
 Months Selector by Vladislav Trotsenko.
 
 Make a hash that contains months and the number of days in a month. In the cycle output
-those months, for which the number of days is exactly 30 
+those months, for which the number of days is exactly 30.
 =end
 
 require 'date'
