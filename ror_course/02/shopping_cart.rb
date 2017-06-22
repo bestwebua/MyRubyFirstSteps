@@ -1,15 +1,15 @@
 =begin
 Shopping cart by Vladislav Trotsenko.
 
-The user enters in turn the name of the product, the price per unit and the number of purchased goods
-(can be a non-integer number). The user can enter an arbitrary quantity of goods until he enters the "stop"
+The user enters the name of the product, the price per unit and the number of purchased goods
+(can be a non-integer number). The user can enter an arbitrary quantity of goods until he enters the 'stop'
 as the name of the product. On the basis of the entered data you need:
 
 Fill and display a hash, the keys of which are the names of the goods, and the value - the embedded hash
 containing the price per unit of goods and the number of purchased goods. Also print the total amount for
 each item.
 
-Calculate and display the total amount of all purchases in the "basket".
+Calculate and display the total amount of all purchases in the 'basket'.
 =end
 
 def get_info

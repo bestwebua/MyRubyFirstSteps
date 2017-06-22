@@ -17,7 +17,7 @@ class Float
 end
 
 def temperature_converter(data)
-  abort "#{data} - invalid data!" unless data[/(-)?\d+\.?\d+( )?[c,f]/i]
+  abort "#{data} - invalid data!" unless data[/-?\d+\.?\d+( )?[c,f]/i]
     value, scale = data[0..-2].to_f, data[-1].upcase
       query = "#{value} #{scale}"
         value = case scale
@@ -29,7 +29,7 @@ def temperature_converter(data)
   "#{query} => #{value} #{scale}"
 end
 
-info, data = 'Enter the temperature and scale (C or F), for example, 98.6 F:', nil
+info, data = 'Enter the temperature with scale (C or F), for example, 98.6 F:', nil
   while data.nil? || data.empty?
     puts info
     data = gets.chomp
