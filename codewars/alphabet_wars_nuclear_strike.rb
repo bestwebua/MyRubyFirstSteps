@@ -33,7 +33,7 @@ def alphabetWar(battlefield)
       result = battlefield.tr('[]','')
     else
       battlefield.each_char.with_index do |char, index|
-        result << nuclear_wave and nuclear_wave = '' unless nuclear_wave.empty? unless char == nuclear_strike
+        result << nuclear_wave and nuclear_wave = '' unless nuclear_wave.empty? if not char == nuclear_strike
           case char
             when shelter_first
               in_shelter, last_index = [], index
