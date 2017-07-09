@@ -63,9 +63,10 @@ def alphabetWar(battlefield)
   result
 end
 
-alphabetWar('#[a]##a#[1]')
+alphabetWar('#[a]##a#[word]')
 
 =begin
+###Codewars test case###
 describe "Basic tests" do
   Test.assert_equals(alphabetWar('abde[fgh]ijk'), 'abdefghijk')
   Test.assert_equals(alphabetWar('ab#de[fgh]ijk'), 'fgh')
@@ -79,6 +80,7 @@ end
 def randint(a, b)
   rand(b-a+1)+a
 end
+
 def validator(battlefield)
   nuclear_strike, shelter_first, shelter_last, nuclear_wave, result = '#', '[', ']', '', []
     unless battlefield.include?(nuclear_strike)
@@ -117,17 +119,17 @@ def validator(battlefield)
   result
 end
 
-  base = 'abcdefghijklmnopqrstuvwxyz'
+base = 'abcdefghijklmnopqrstuvwxyz'
 
 describe "Random tests" do
   rand(5..10).times do
-    nuclear_corps = (0..randint(1, 4)).map { (0..randint(3, 5)).map { base[randint(0, base.size-1)] }.join }.join
-      shelters = '[' + (0..randint(1, 2)).map { (0..randint(1, 2)).map { base[randint(0, base.size-1)] }.join }.join + ']'
-        nuclear_blast = '#'*rand(1..2)
-          battlefield = [nuclear_blast, nuclear_corps, shelters].shuffle.join
-            Test.it("Testing for #{battlefield}") do
-              Test.assert_equals(alphabetWar(battlefield), validator(battlefield))
-      end
+    nuclear_blast = Array.new(rand(0..4)) { |i| base[randint(0, base.size-1)]+'#'*rand(1..2)+base[randint(0, base.size-1)] }
+      nuclear_corps = Array.new(rand(2..6)) { |i| (0..randint(1, 4)).map { (0..randint(3, 5)).map { base[randint(0, base.size-1)] }.join }.join }
+        shelters = Array.new(rand(0..5)) { |i| '[' + (0..randint(1, 2)).map { (0..randint(1, 2)).map { base[randint(0, base.size-1)] }.join }.join + ']' }
+          battlefield = [nuclear_blast, nuclear_corps, shelters].flatten.shuffle.join
+        Test.it("Testing for #{battlefield}") do
+      Test.assert_equals(alphabetWar(battlefield), validator(battlefield))
+    end
   end
 end
 =end
