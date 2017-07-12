@@ -62,7 +62,7 @@ def alphabetWar(battlefield)
   result
 end
 
-p alphabetWar('[ab]adfd[dd]##[abe]dedf[ijk]d#d[h]#')
+alphabetWar('[ab]adfd[dd]##[abe]dedf[ijk]d#d[h]#')
 
 =begin
 #Before refactoring code:
