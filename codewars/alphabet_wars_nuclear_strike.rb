@@ -33,6 +33,91 @@ def alphabetWar(battlefield)
       result = battlefield.tr('[]','')
     else
       battlefield.each_char.with_index do |char, index|
+        case char
+          when shelter_first
+            result << nuclear_wave and nuclear_wave = '' unless nuclear_wave.empty?
+              in_shelter, last_index = [], index
+              in_shelter = battlefield[index..last_index] and last_index+=1 until in_shelter[-1] == shelter_last
+            result << in_shelter[1...-1]
+          when nuclear_strike then nuclear_wave << char
+        end
+        result << nuclear_wave and nuclear_wave = '' if index == battlefield.size-1 && !nuclear_wave.empty?
+      end
+
+      result.select!.with_index do |item, index|
+        next_item, prev_item = result[index+1], result[index-1]
+            case index
+              when 0
+                !item.include?(nuclear_strike) && next_item.count(nuclear_strike) < 2
+              when result.size-1
+                !item.include?(nuclear_strike) && prev_item.count(nuclear_strike) < 2
+              else
+                (!prev_item.include?(nuclear_strike) && !item.include?(nuclear_strike) && next_item.count(nuclear_strike) < 2) ||
+                (prev_item.count(nuclear_strike) < 2 && !item.include?(nuclear_strike) && !next_item.include?(nuclear_strike))
+            end
+      end
+
+    result = result.join
+    end
+  result
+end
+
+p alphabetWar('[ab]adfd[dd]##[abe]dedf[ijk]d#d[h]#')
+
+=begin
+#Before refactoring code:
+def alphabetWar(battlefield)
+  nuclear_strike, shelter_first, shelter_last, nuclear_wave, result, stack = '#', '[', ']', '', [], []
+    unless battlefield.include?(nuclear_strike)
+      result = battlefield.tr('[]','')
+    else
+      battlefield.each_char.with_index do |char, index|
+        case char
+          when shelter_first
+            in_shelter, last_index = [], index
+              in_shelter = battlefield[index..last_index] and last_index+=1 until in_shelter[-1] == shelter_last
+            result << in_shelter[1...-1]
+          when nuclear_strike then result << char
+        end
+      end
+
+      result.each_with_index do |item, index|
+        if item == nuclear_strike
+          nuclear_wave << item
+          stack << nuclear_wave if index == result.size-1
+        else
+          stack << nuclear_wave unless nuclear_wave.empty?
+            nuclear_wave = ''
+          stack << item
+        end
+      end
+      result = stack
+
+      result.select!.with_index do |item, index|
+        next_item, prev_item = result[index+1], result[index-1]
+            case index
+              when 0
+                !item.include?(nuclear_strike) && next_item.count(nuclear_strike) < 2
+              when result.size-1
+                !item.include?(nuclear_strike) && prev_item.count(nuclear_strike) < 2
+              else
+                (!prev_item.include?(nuclear_strike) && !item.include?(nuclear_strike) && next_item.count(nuclear_strike) < 2) ||
+                (prev_item.count(nuclear_strike) < 2 && !item.include?(nuclear_strike) && !next_item.include?(nuclear_strike))
+            end
+      end
+
+    result = result.join
+    end
+  result
+end
+
+#old solution
+def alphabetWar(battlefield)
+  nuclear_strike, shelter_first, shelter_last, nuclear_wave, result = '#', '[', ']', '', []
+    unless battlefield.include?(nuclear_strike)
+      result = battlefield.tr('[]','')
+    else
+      battlefield.each_char.with_index do |char, index|
         result << nuclear_wave and nuclear_wave = '' unless nuclear_wave.empty? if not char == nuclear_strike
           case char
             when shelter_first
@@ -63,9 +148,6 @@ def alphabetWar(battlefield)
   result
 end
 
-alphabetWar('#[a]##a#[word]')
-
-=begin
 ###Codewars test case###
 describe "Basic tests" do
   Test.assert_equals(alphabetWar('abde[fgh]ijk'), 'abdefghijk')
