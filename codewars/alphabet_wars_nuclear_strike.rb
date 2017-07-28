@@ -1,5 +1,6 @@
 =begin
 Alphabet Wars - Nuclear Strike by Vladislav Trotsenko.
+My Ruby translation.
 
 There is a war and nobody knows - the alphabet war! The letters hide in their nuclear shelters.
 The nuclear strikes hit the battlefield and killed a lot of them.
