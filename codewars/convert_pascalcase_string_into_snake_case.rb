@@ -11,15 +11,17 @@ to_underscore('App7Test')       #returns app7_test
 to_underscore(1)                #returns "1"
 =end
 
+
 def to_underscore(string)
   string.to_s.gsub(/(?<=.)(?=[A-Z])/, '_').downcase
 end
 
-p to_underscore('Am7Days')
+to_underscore('77')
 
 =begin
 #Before refactoring code:
 def to_underscore(string)
-  string.is_a?(Integer) ? string.to_s : string.chars.map { |i| i == i.upcase && i[/\D/] ? i = '_' + i.downcase : i }.join[1..-1]
+  result = string.to_s.chars.map { |i| i[/\D/] && i == i.upcase ? i = '_' + i.downcase : i }.join
+  result[0] == '_' ? result[1..-1] : result
 end
 =end
