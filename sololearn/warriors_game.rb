@@ -34,11 +34,11 @@ def fight(players)
 end
 
 def show_info(players)
-  puts "Players info"
+  puts 'Players info'
   players.each { |player| puts player }
 end
 
-fighters = ['Fighter 1', 'Fighter 2', 'Fighter 3', 'Fighter 4', 'Fighter 5'].map { |player| Player.new(player) }
+fighters = ('1'..'10').map { |player| Player.new(player) }
 fight(fighters)
 
 
