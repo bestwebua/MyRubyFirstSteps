@@ -1,5 +1,5 @@
 =begin
-  Instagrem Hash Tag Converter by Vladislav Trotsenko.
+  Instagram Hash Tag Converter by Vladislav Trotsenko.
 =end
 
 def to_instagram_hash_tag(string)
