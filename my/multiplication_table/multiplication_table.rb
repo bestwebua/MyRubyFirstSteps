@@ -65,7 +65,7 @@ puts "#{name}, давай повтроим табличку умножения :
 
   questions = runtime = 0
     wrong_answers, right_answers_in_a_row, medals = [], 0, []
-      questions_stack = (2..9).to_a.permutation(2).to_a + (2..9).to_a.combination(1).map { |i| i << i.first }
+      questions_stack = (2..9).to_a.combination(1).map { |i| i << i.first } #(2..9).to_a.permutation(2).to_a + 
         until questions_stack.empty? do
           questions_stack = questions_stack.shuffle; num1, num2 = questions_stack.pop
             right_answer, answer, question = num1*num2, '', "#{num1} x #{num2}"
@@ -99,9 +99,11 @@ puts "#{name}, давай повтроим табличку умножения :
                     end
           questions+=1
         end
-      date, errors = Time.now, wrong_answers.size
-    progress = (questions-errors).percent_of(questions)
-  scores = [date, name, progress, runtime, errors].join(', ')
+
+        date, errors = Time.now, wrong_answers.size
+      progress = (questions-errors).percent_of(questions)
+    need_to_learn = wrong_answers.empty? ? nil : wrong_answers.to_s
+  scores = [date, name, progress, runtime, errors, need_to_learn].compact.join(', ')
 rewards = medals.group_by(&:itself).map { |k,v| "#{k}  : #{v.size}" }.join(', ')
 
   puts "Ты знаешь таблицу умножения на #{progress}%"
