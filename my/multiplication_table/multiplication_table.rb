@@ -69,7 +69,7 @@ puts "#{name}, давай повтроим табличку умножения :
 
   questions = runtime = 0
     wrong_answers, right_answers_in_a_row, medals = [], 0, []
-      questions_stack = (2..9).to_a.combination(1).map { |i| i << i.first } #(2..9).to_a.permutation(2).to_a + 
+      questions_stack = (2..9).to_a.permutation(2).to_a + (2..9).to_a.combination(1).map { |i| i << i.first }
         until questions_stack.empty? do
           questions_stack = questions_stack.shuffle; num1, num2 = questions_stack.pop
             right_answer, answer, question = num1*num2, '', "#{num1} x #{num2}"
