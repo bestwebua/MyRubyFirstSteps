@@ -10,7 +10,7 @@ The complexity of the algorithm: O(n^2).
 
 def insertion_sort(arr)
   for step in 1...arr.size
-    index = step
+  index = step
     while index > 0
       arr[index], arr[index-1] = arr[index-1], arr[index] if arr[index-1] > arr[index]
       index-=1
