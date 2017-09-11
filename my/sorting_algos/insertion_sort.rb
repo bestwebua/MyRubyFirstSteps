@@ -11,8 +11,8 @@ The complexity of the algorithm: O(n^2).
 def insertion_sort(arr)
   for step in 1...arr.size
   index = step
-    while index > 0
-      arr[index], arr[index-1] = arr[index-1], arr[index] if arr[index-1] > arr[index]
+    while arr[index-1] > arr[index] && index > 0
+      arr[index], arr[index-1] = arr[index-1], arr[index]
       index-=1
     end
   end
@@ -20,3 +20,17 @@ def insertion_sort(arr)
 end
 
 insertion_sort((1..100).to_a.shuffle)
+
+=begin
+#Before refactoring code:
+def insertion_sort(arr)
+  for step in 1...arr.size
+  index = step
+    while index > 0
+      arr[index], arr[index-1] = arr[index-1], arr[index] if arr[index-1] > arr[index]
+      index-=1
+    end
+  end
+  arr
+end
+=end
