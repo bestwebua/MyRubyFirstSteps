@@ -1,5 +1,5 @@
 =begin
-Insertion sort algo realisation by Vladislav Trotsenko.
+Insertion sort algo realization by Vladislav Trotsenko.
 
 Insertion sort is a simple sorting algorithm that builds the final sorted array (or list)
 one item at a time. It is much less efficient on large lists than more advanced algorithms

@@ -1,5 +1,5 @@
 =begin
-Bogosort algo realisation by Vladislav Trotsenko.
+Bogosort algo realization by Vladislav Trotsenko.
 
 Bogosort (also permutation sort, stupid sort, slowsort, shotgun sort or monkey sort) is a
 highly ineffective sorting algorithm based on the generate and test paradigm.

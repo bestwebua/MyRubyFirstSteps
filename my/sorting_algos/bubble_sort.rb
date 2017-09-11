@@ -1,5 +1,5 @@
 =begin
-Bubble sort algo realisation by Vladislav Trotsenko.
+Bubble sort algo realization by Vladislav Trotsenko.
 
 Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that
 repeatedly steps through the list to be sorted, compares each pair of adjacent items
