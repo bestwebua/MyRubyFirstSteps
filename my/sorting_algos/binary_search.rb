@@ -20,4 +20,4 @@ def binary_search(arr, target)
   guessed ? mid : nil
 end
 
-binary_search([1,3,5,7], 3)
+binary_search([1,3,5,7], 1)
