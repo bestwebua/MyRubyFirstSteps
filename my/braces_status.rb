@@ -13,6 +13,21 @@ For instance:
 =end
 
 def braces_status(string)
+  braces, stack = {'('=>')', '['=>']', '{'=>'}'}, []
+	  string.each_char do |brace| 
+	    case brace
+	      when '(', '[', '{' then stack << brace
+	      when ')', ']', '}' then return false if stack.pop != braces.key(brace)
+	    end
+	  end
+  stack.empty?
+end
+
+braces_status('[[[ [s] ]]]{super_tag(arg)}')
+
+=begin
+#The first version.
+def braces_status(string)
   #Создаем переменные: хеш, массив для открытых скобок и статус (по умолчанию - истина).
   braces, open_braces, status = {'('=>')', '['=>']', '{'=>'}'}, [], true
   	#Закидвыаем все символы в массив и выбираем из полученных данных только скобки
@@ -41,6 +56,7 @@ end
 
 #Вызываем метод, в качестве аргумента передаем строку с буквами и скобками. На выходе получаем ложь или истину.
 braces_status('([[some](){text}here]...)')
+=end
 
 =begin
 Light version of braces status. It can check enclosed braces only, like this [({})]
