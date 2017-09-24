@@ -13,14 +13,14 @@ For instance:
 =end
 
 def braces_status(string)
-  braces, stack = {'('=>')', '['=>']', '{'=>'}'}, []
-	  string.each_char do |brace| 
-	    case brace
-	      when '(', '[', '{' then stack << brace
-	      when ')', ']', '}' then return false if stack.pop != braces.key(brace)
-	    end
-	  end
-  stack.empty?
+	braces, stack = {'('=>')', '['=>']', '{'=>'}'}, []
+		string.each_char do |brace| 
+			case brace
+				when '(', '[', '{' then stack << brace
+				when ')', ']', '}' then return false if stack.pop != braces.key(brace)
+			end
+		end
+	stack.empty?
 end
 
 braces_status('[[[ [s] ]]]{super_tag(arg)}')
