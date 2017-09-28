@@ -45,7 +45,7 @@ def sea_battle_mapper(locations)
           map[numbers][coords_row.index(letters)] = black
       end
     map.map.with_index { |item, index| index.zero? ? item.unshift('  ') : item.unshift(coords_column[index]) }
-  puts  map.map { |item| item.join(' ') }.join("\n")
+  puts map.map { |item| item.join(' ') }.join("\n")
 
 end
 
