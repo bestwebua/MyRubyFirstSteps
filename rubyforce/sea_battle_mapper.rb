@@ -38,9 +38,8 @@ def sea_battle_mapper(locations)
   abort error3 unless map_points == map_points.uniq
 
   map, coords_row, white, black = [], ('a'..'j').to_a, "\u2B1C", "\u2B1B"
-    coords_column = (0..10).to_a.map { |number| number < 10 ? ' ' + number.to_s : number.to_s }
-      map << coords_row
-        10.times { map << [white]*10 }
+  coords_column = (0..10).to_a.map { |number| number < 10 ? ' ' + number.to_s : number.to_s }
+    map << coords_row and 10.times { map << [white]*10 }
       map_points.each do |point|
         letters, numbers = point
           map[numbers][coords_row.index(letters)] = black
