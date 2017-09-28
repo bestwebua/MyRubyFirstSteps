@@ -50,4 +50,4 @@ def sea_battle_mapper(locations)
 
 end
 
-sea_battle_mapper('a1b1c1d1,  a3b3c3, d3e3f3, i3j3, i5j5, i7j7, a10, c10, e10, g10')
+sea_battle_mapper('a1b1c1d1, a3b3c3, d3e3f3, i3j3, i5j5, i7j7, a10, c10, e10, g10')
