@@ -6,7 +6,7 @@ Write a method that will check out ships coords and print out them as a map.
 Your fleet should consist: 1 of four-deck, 2 of three-deck, 3 of two-deck and
 4 of single-deck ships.
 
-Coordinates should be in a range a-j and 0-9.
+Coordinates should be in a range a-j and 1-10.
 =end
 
 def sea_battle_mapper(locations)
