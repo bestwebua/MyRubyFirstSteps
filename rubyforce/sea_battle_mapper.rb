@@ -46,7 +46,7 @@ def sea_battle_mapper(locations)
       end
     map.map.with_index { |item, index| index.zero? ? item.unshift('  ') : item.unshift(coords_column[index]) }
   puts map.map { |item| item.join(' ') }.join("\n")
-  
+
 end
 
 class RandomShips
@@ -61,7 +61,7 @@ class RandomShips
       until objects_to_create.empty? #Creating ships by our hash table
         ship_type, position = objects_to_create.max[0], ['horizontal', 'vertical'] #Let's do it from larger to smaller type
           loop do
-            case position.sample #
+            case position.sample
               when 'horizontal'
                 number, f_letter_number = rand(1..10), rand(1...10-ship_type)
                   l_letter_number = f_letter_number + ship_type
