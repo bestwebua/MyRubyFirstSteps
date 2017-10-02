@@ -46,7 +46,51 @@ def sea_battle_mapper(locations)
       end
     map.map.with_index { |item, index| index.zero? ? item.unshift('  ') : item.unshift(coords_column[index]) }
   puts map.map { |item| item.join(' ') }.join("\n")
-
+  
 end
 
-sea_battle_mapper('a1b1c1d1, a3b3c3, d3e3f3, i3j3, i5j5, i7j7, a10, c10, e10, g10')
+class RandomShips
+  def self.new
+    objects_to_create, objects, spaces_coords = {4 => 1, 3 => 2, 2 => 3, 1 => 4}, [], []
+    #Let's create our coords dictionary on a place. I'm use 12x12 matrix instead 10x10 for exclude going beyond the coordinates
+    #Hell yeah, .each_with_object is realy cool stuff!
+      dict = (0..11).each_with_object({}) do |number, hash|
+        hash[number] = [] and ('a'..'k').to_a.unshift('x').each { |letter| hash[number] << letter + number.to_s }
+      end
+    number = f_number = letter_number = f_letter_number = 0
+      until objects_to_create.empty? #Creating ships by our hash table
+        ship_type, position = objects_to_create.max[0], ['horizontal', 'vertical'] #Let's do it from larger to smaller type
+          loop do
+            case position.sample #
+              when 'horizontal'
+                number, f_letter_number = rand(1..10), rand(1...10-ship_type)
+                  l_letter_number = f_letter_number + ship_type
+                    coords_range = dict[number][f_letter_number...l_letter_number] #horizontal ship prototype
+                    top_space = dict[number-1][f_letter_number-1..l_letter_number] #space border like margin, top
+                  bottom_space = dict[number+1][f_letter_number-1..l_letter_number] #bottom
+                left_space, right_space = dict[number][f_letter_number-1], dict[number][l_letter_number] #left & right
+              else
+                f_number, letter_number = rand(1...10-ship_type), rand(1..10)
+                  l_number = f_number + ship_type
+                    coords_range = (dict[f_number][letter_number]...dict[l_number][letter_number]).to_a #vertical ship prototype
+                    top_space, bottom_space = dict[f_number-1][letter_number], dict[l_number][letter_number] #space border like margin, top & bottom
+                  left_space = (dict[f_number-1][letter_number-1]..dict[l_number][letter_number-1]).to_a #left
+                right_space = (dict[f_number-1][letter_number+1]..dict[l_number][letter_number+1]).to_a #right
+            end
+              #Collecting free space around the ship and adding unique space coords only
+              [top_space, bottom_space, left_space, right_space].each do |coord| 
+                spaces_coords << coord unless spaces_coords.flatten.include?(coord)
+              end
+                valid_ship = coords_range.none? { |coord| objects.flatten.include?(coord) } #Is a ship is unique?
+              valid_space = coords_range.none? { |coord| spaces_coords.flatten.include?(coord) } #Is the border clear?
+            #Add our ship prototype and exit from the loop, otherwise clean space coords and repeat the loop
+            valid_ship && valid_space ? (objects << coords_range and break) : spaces_coords.pop
+          end
+        objects_to_create[ship_type]-=1 #Reducing ships amount
+      objects_to_create.delete_if { |k,v| v.zero? } #And clean up the hash from the ships that we created 
+    end
+    objects.map(&:join).join(', ') #Yup, our test string with ships coords is ready!
+  end
+end
+
+sea_battle_mapper(RandomShips.new)
