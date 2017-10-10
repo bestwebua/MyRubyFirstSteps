@@ -1,3 +1,7 @@
+=begin
+Own .times by Vladislav Trotsenko.
+=end
+
 class Integer
   def times(&block)
     self.positive? ? block_given? ? (0...self).each { |i| yield(i) } : self : self
