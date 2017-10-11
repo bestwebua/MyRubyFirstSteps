@@ -1,5 +1,5 @@
 =begin
-Refactored Greeting by Vladisakv Trotsenko.
+Refactored Greeting by Vladislav Trotsenko.
 
 The following code could use a bit of object oriented artistry.
 While its a simple method and works just fine as it is, in a larger system its
