@@ -10,10 +10,10 @@ result should == "apples, pears\ngrapes\nbananas"
 =end
 
 def solution(str, markers)
-  str.gsub(/\s+[#{markers.join}].*/, '')
+  str.gsub(/(\s+)?[#{markers.join}].*/, '')
 end
 
-solution("apples, pears # and bananas\ngrapes\nbananas $apples", ['#', '$'])
+p solution("apples, pears# and bananas\ngrapes\nbananas $apples", ['#', '$'])
 
 =begin
 #Before refactoring code:
