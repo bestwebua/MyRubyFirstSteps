@@ -13,7 +13,7 @@ def solution(str, markers)
   str.gsub(/(\s+)?[#{markers.join}].*/, '')
 end
 
-p solution("apples, pears# and bananas\ngrapes\nbananas $apples", ['#', '$'])
+solution("apples, pears# and bananas\ngrapes\nbananas $apples", ['#', '$'])
 
 =begin
 #Before refactoring code:
