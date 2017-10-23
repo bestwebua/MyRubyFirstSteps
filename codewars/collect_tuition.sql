@@ -20,3 +20,5 @@ cases to do the actual testing.
 */
 
 SELECT * FROM students WHERE tuition_received = FALSE
+
+---SELECT * FROM students WHERE NOT tuition_received
