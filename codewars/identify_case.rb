@@ -47,10 +47,19 @@ p id('hello-world')
 #Super refactoring code:
 def id(c_str)
   case c_str
-    when /\A(?:[a-z]|(?<=[a-z])-)+\z/     then "kebab"
-    when /\A(?:[a-z]|(?<=[a-z])_)+\z/     then "snake"
-    when /\A(?:[a-z]|(?<=[a-z])[A-Z])+\z/ then "camel"
+    when /\A(?:[a-z]|(?<=[a-z])-)+\z/     then 'kebab'
+    when /\A(?:[a-z]|(?<=[a-z])_)+\z/     then 'snake'
+    when /\A(?:[a-z]|(?<=[a-z])[A-Z])+\z/ then 'camel'
     else "none"
+  end
+end
+
+def id(c_str)
+  case c_str
+    when /^[a-z]+-[a-z]+(-[a-z]+)*[a-z]+$/ then 'kebab'
+    when /^[a-z]+_[a-z]+(_[a-z]+)*[a-z]+$/ then 'snake'
+    when /^([a-z]+[A-Z]+)+[a-z]*$/ then 'camel'
+    else 'none'
   end
 end
 =end
