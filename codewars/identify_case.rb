@@ -1,6 +1,18 @@
 =begin
 Identify Case by Vladislav Trotsenko.
 
+So the task here is to implement a function that takes a string,
+c_str, and returns a string with the case the input is in. The
+possible case types are “kebab”, “camel”, and ”snake”. If none
+of the cases match with the input, or if there are no 'spaces'
+in the input (for example in snake case, spaces would be '_'s),
+return “none”. Inputs will only have letters (no numbers or
+special characters).
+Some definitions
+
+Kebab case: lowercase-words-separated-by-hyphens
+Camel case: lowercaseFirstWordFollowedByCapitalizedWords
+Snake case: lowercase_words_separated_by_underscores
 =end
 class String
   def kebabcase?
