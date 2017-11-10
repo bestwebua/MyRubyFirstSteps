@@ -6,16 +6,14 @@ Calculator by Vladislav Trotsenko.
 
 class Calculator
   def evaluate(string)
-    math_actions, parentheses = /\/|\*|\+|\-/, /\(|\)/
-    p string = string.gsub(/[^#{math_actions}|#{parentheses}|\d+]/, '')
-
-  
-
+    operations = /\+|\-|\*|\/|\(|\)/
+      abort "I can't process your string." unless /\A(\d+|#{operations}| )+\z/.match(string)
+        string.scan(/\d+|#{operations}/).map { |char| /\d/.match(char) ? char.to_i : char }
   end
 end
 
 
-Calculator.new.evaluate('-20 / 2 + 300 * (4 - 60) +')
+p Calculator.new.evaluate('-20/2+300*(4-60)')
 
 =begin
   data, stack, operators = [], '', /\/|\*|\+|\-|\(|\)/
