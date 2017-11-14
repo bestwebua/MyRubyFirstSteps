@@ -1,6 +1,5 @@
 =begin
 Sea Battle Mapper by Vladislav Trotsenko.
-Little bit of code from RubyForce tasks.
 
 Write a method that will check out ships coords and print out them as a map.
 Your fleet should consist: 1 of four-deck, 2 of three-deck, 3 of two-deck and

@@ -38,7 +38,7 @@ def show_info(players)
   players.each { |player| puts player }
 end
 
-fighters = ('1'..'10').map { |player| Player.new(player) }
+fighters = ('Fighter 1'..'Fighter 10').map { |player| Player.new(player) }
 fight(fighters)
 
 
