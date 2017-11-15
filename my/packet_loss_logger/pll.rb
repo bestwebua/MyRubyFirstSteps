@@ -20,7 +20,7 @@ require 'net/ping'
 
   params = ARGF.argv
     if !(params.join(' ') =~ /\A([a-z0-9_-]+\.[a-z]+) +(\d+) +(\d+[s|m|h|d])\z/)
-      abort 'Wrong format! pll.rb [host_name] [packet_size_in_bytes] [runtime format: 1s or 1h or 1d]'
+      abort 'Wrong format! pll.rb [host_name] [packet_size_in_bytes] [runtime format: 1s, 1m , 1h or 1d]'
     end
       host, packet_size, runtime = params
         packet_size, runtime_duration, runtime_units = packet_size.to_i, runtime[0..-2].to_i, runtime[-1]
