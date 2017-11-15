@@ -2,14 +2,22 @@
 ICMP Packet Loss Logger by Vladislav Trotsenko.
 
 Simple packet loss logger build with using net/ping gem.
-The main idea for write this script I have found when I
-need to log loss packets on CentOS 6.5 server.
+(https://github.com/djberg96/net-ping).
+
+I have found the main idea for writing this script when I
+needed to log loss packets on CentOS 6.5 server.
 
 I tried to use in bash ping (from iputils), like this code:
 # ping -D -O -s 1000 myhost | grep 'no answer', but ping from
 iputils(20071127-24) on CentsOS doesn't know O-key(.
+
+Use options for run this script with superadmin permissions,
+like example below:
+
+# sudo ruby pll.rb host.com 1000 20s
 =end
 require 'net/ping'
+
   params = ARGF.argv
     if !(params.join(' ') =~ /\A([a-z0-9_-]+\.[a-z]+) +(\d+) +(\d+[s|m|h|d])\z/)
       abort 'Wrong format! pll.rb [host_name] [packet_size_in_bytes] [runtime format: 1s or 1h or 1d]'
@@ -43,4 +51,5 @@ require 'net/ping'
           sleep 1
         break if time_current >= time_end
       end
+
 File.open(log, 'a+') { |data| data.puts "#### Ping to [#{host}], started at: #{time_start}, finished at: #{time_end}. Total timeouts: #{total_fails}. The worst time is #{the_worst_time} ms. ####" }
