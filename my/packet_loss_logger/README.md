@@ -15,16 +15,16 @@ Please note, this script should run with superadmin permissions (this is feature
 
 ##### Installing environment
 ```bash
-$ yum groupinstall -y development
-$ curl -L get.rvm.io | bash -s stable
-$ source /etc/profile.d/rvm.sh
-$ rvm reload
-$ rvm install 2.1.0
-$ ruby --version  #To check your current default interpreter, run the following:
-$ gem install net-ping
-$ mkdir etc/packet_loss_logger
-$ cd etc/packet_loss_logger
-$ culr -O https://raw.githubusercontent.com/bestwebua/MyRubyFirstSteps/master/my/packet_loss_logger/pll.rb
+yum groupinstall -y development
+curl -L get.rvm.io | bash -s stable
+source /etc/profile.d/rvm.sh
+rvm reload
+rvm install 2.1.0
+ruby --version  #To check your current default interpreter, run the following:
+gem install net-ping
+mkdir etc/packet_loss_logger
+cd etc/packet_loss_logger
+culr -O https://raw.githubusercontent.com/bestwebua/MyRubyFirstSteps/master/my/packet_loss_logger/pll.rb
 ```
 ##### Running ICMP Packet Loss Logger
 For execution in background I have used screen. To create a screen and start working with it run this command, where 'pll' - the name of a screen. It may be any name, like screen1, test1, etc.
