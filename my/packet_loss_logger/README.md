@@ -12,7 +12,7 @@ Build with using net/ping gem (https://github.com/djberg96/net-ping).
 
 #### Installation
 Please note, this script should run with superadmin permissions (this is features of net/ping gem work. CentOS example without preinstalled Ruby:
-
+- - -
 ##### Installing environment
 ```bash
 yum groupinstall -y development
@@ -26,6 +26,7 @@ mkdir etc/packet_loss_logger
 cd etc/packet_loss_logger
 culr -O https://raw.githubusercontent.com/bestwebua/MyRubyFirstSteps/master/my/packet_loss_logger/pll.rb
 ```
+- - -
 ##### Running ICMP Packet Loss Logger
 For execution in background I have used screen. To create a screen and start working with it run this command, where 'pll' - the name of a screen. It may be any name, like screen1, test1, etc.
 ```bash
