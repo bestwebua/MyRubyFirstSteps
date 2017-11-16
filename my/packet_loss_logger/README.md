@@ -7,10 +7,9 @@ Build with using net/ping gem (https://github.com/djberg96/net-ping).
 ### Requirements
 >= Ruby 1.9.3
 >= gem net-ping 2.0.2
-Please note, this script should run with superadmin permissions (this is features of net/ping gem work).
 
 #### Installation
-CentOS example without preinstalled Ruby:
+Please note, this script should run with superadmin permissions (this is features of net/ping gem work. CentOS example without preinstalled Ruby:
 
 ##### Installing environment
 ```bash
