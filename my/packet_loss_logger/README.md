@@ -36,6 +36,7 @@ To start the script, run pll.rb with next pattern: `[host_name] [packet_size_in_
 ```bash
 $ ruby etc/packet_loss_logger/pll.rb google.com 1000 1m
 ```
+- - -
 ##### How to use screen?
 To exit screen, use the `<ctrl> + <a> & <d>` keys. All processes running in your screen are still being executed. To return to your screen or to any other screen, use:
 ```bash
@@ -50,7 +51,9 @@ and select and activate one of the screen that you need:
 $ screen -r <id>
 ```
 When you no longer need a screen session, you can kill it. To do this, login into your screen and press `<ctrl> + <d>`.
+- - -
 ##### Read the ICMP Packet Loss Log
 ```bash
 $ cat etc/packet_loss_logger/log.txt
 ```
+- - -
