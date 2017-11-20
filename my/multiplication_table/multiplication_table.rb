@@ -56,7 +56,7 @@ def top_score(arr)
 end
 
 #Main body
-log = File.new('log.txt', 'a+')
+log = File.new("#{File.expand_path(File.dirname(__FILE__))}/log.txt", 'a+')
   if File.zero?(log)
     puts "Твой результат прохождения будет первым!"
   else
