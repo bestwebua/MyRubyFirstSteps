@@ -17,4 +17,4 @@ class Arith
 end
 
 i = Arith.new('three')
-p i.add('eight')
+i.add('eight')
