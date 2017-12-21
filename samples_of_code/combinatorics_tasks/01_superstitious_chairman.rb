@@ -14,10 +14,15 @@
 них все номера с восьмерками?»
 =end
 
-number, max = 8, 999
+#my code before reading this book
+def total_numbers_except(number, max)
+  ('0'..max.to_s).reject{ |i| i.include?(number.to_s) }.size
+end
 
-#my code before reading
-(0..max).map(&:to_s).reject{ |i| i.include?(number.to_s) }.size
 
 #after
-9**max.to_s.size
+def total_numbers_except(number, max)
+  (10-number.to_s.size)**max.to_s.size
+end
+
+total_numbers_except(8, 999)
