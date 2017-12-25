@@ -13,7 +13,7 @@ class Player
 end
 
 player1 = Player.new("Jason", 100)
-player2 = Player.new("Kenneth", 80)
+player2 = Player.new("Kenneth", 80
 
 puts "player1 > player2: %s" % (player1 > player2)
 puts "player1 < player2: %s" % (player1 < player2)
