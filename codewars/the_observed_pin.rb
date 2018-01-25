@@ -53,10 +53,10 @@ def get_pins(observed)
     '8' => %w(0 5 7 8 9),
     '9' => %w(6 8 9)
   }
-  observed.chars.map { |item| dict[item] }.inject([''], &:product).map(&:join)
+  observed.chars.map { |item| dict[item] }.inject([''], &:product)#.map(&:join)
 end
 
-get_pins('369')
+p get_pins('369')
 
 =begin
 #before refactoring code:
