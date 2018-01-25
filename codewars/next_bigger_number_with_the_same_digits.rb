@@ -17,15 +17,21 @@ next_bigger(531)==-1
 
 def next_bigger(n)
   chars = n.to_s.chars
-    (0..chars.length-2).reverse_each do |i|
-      (i+1..chars.length-1).reverse_each do |j|
+    (0..chars.size-2).reverse_each do |i|
+      (i+1..chars.size-1).reverse_each do |j|
         if chars[i] < chars[j]
           chars[i], chars[j] = chars[j], chars[i]
-          return (chars.first(i+1)+chars.last(chars.length-1-i).sort).join.to_i
+        return (chars.first(i+1)+chars.last(chars.size-1-i).sort).join.to_i
         end
       end
     end
   -1
 end
 
-next_bigger(144)
+next_bigger(2071)
+
+=begin
+def next_bigger(n)
+  n.to_s.chars.permutation.to_a.map { |i| i.join.to_i }.find { |i| i > n }
+end
+=end

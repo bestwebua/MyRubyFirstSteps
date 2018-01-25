@@ -10,13 +10,18 @@ Return 0 if the parameter is omitted.
 =end
 
 def count_vowels(str)
+  str.gsub(/[^aeiou]/i, '').size rescue nil
+end
+
+count_vowels(12)
+
+=begin
+#before refactoring code2:
+def count_vowels(str)
   str.is_a?(String) ? str.gsub(/[^aeiou]/i, '').size : nil
 end
 
-count_vowels('abaae')
-
-=begin
-#before refactoring code:
+#before refactoring code1:
 def count_vowels(str='')
   str.is_a?(String) ? str.scan(/[^aeiou]/i).size : nil
 end
