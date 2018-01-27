@@ -10,7 +10,7 @@ def sum_of_first_naturals(n)
   n == 1 ? n : sum_of_first_naturals(n-1)+n
 end
 
-#Iterative solution
+#Enumerator solution
 def sum_of_first_naturals(n)
   (1..n).inject(:+)
 end
