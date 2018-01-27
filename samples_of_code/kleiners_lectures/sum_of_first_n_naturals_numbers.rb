@@ -20,4 +20,4 @@ def sum_of_first_naturals(n)
   (1+n)*n/2
 end
 
-sum_of_first_naturals(999991)
+sum_of_first_naturals(100)
