@@ -10,9 +10,16 @@ def sum_of_first_naturals(n)
   n == 1 ? n : sum_of_first_naturals(n-1)+n
 end
 
-#Enumerator solution
+#Enumerator solution v1
 def sum_of_first_naturals(n)
   (1..n).inject(:+)
+end
+
+#Enumerator solution v2
+def sum_of_first_naturals(n)
+  result = 0
+    (1..n).each { |i| result+=i }
+  result
 end
 
 #Math solution. Correct solution that works with large numeric series
@@ -20,4 +27,4 @@ def sum_of_first_naturals(n)
   (1+n)*n/2
 end
 
-sum_of_first_naturals(100)
+sum_of_first_naturals(9999999)
