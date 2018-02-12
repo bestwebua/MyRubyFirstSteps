@@ -28,36 +28,31 @@ Returns:
 =end
 
 def dp(set, set_size, sum)
-  matrix = []
-    (sum+1).times { matrix << Array.new(set_size+1, 0) }
-      for j in 0..set_size
-        matrix[0][j] = 0
-      end
-    for i in 0..sum
-      matrix[i][0] = 0
-    end
-  for i in 1..set_size
-    for j in 1..sum
-      if j < set[i-1]
-        matrix[j][i] = matrix[j][i-1]
-      else
-        matrix[j][i] = [matrix[j][i-1], set[i-1] + matrix[j-set[i-1]][i-1]].max
+  matrix = []; (sum+1).times { matrix << Array.new(set_size+1, 0) }
+    for i in 1..set_size
+      for j in 1..sum
+        if j < set[i-1]
+          matrix[j][i] = matrix[j][i-1]
+        else
+          matrix[j][i] = [matrix[j][i-1], set[i-1] + matrix[j-set[i-1]][i-1]].max
+        end
       end
     end
-  end
+    p matrix
   matrix.flatten.max
 end
 
 def pack_basket(basket, pile)
   if basket.between?(9, 200)
-    pile = pile.scan(/\d+/).map(&:to_i).select { |i| i <= basket }
+    #pile = pile.scan(/\d+/).map(&:to_i).select { |i| i <= basket }
+    pile = [4,12]
     pile_max = dp(pile, pile.size, basket)
   end
   pile_max ||= 0
   "The basket weighs #{pile_max} kilograms"
 end
 
-pack_basket(10, 'dust9dust dust 25 dust dust 50 dust9dust dust 76 dust3dustdust dust 123 dust dust 131 dust56dust dust 128 dust56dust dust 183 dust9dust dust 13 dust dust 143 dust9dust dust 159 dust3dustdust dust 63 dust3dustdust dust 190 dust3dustdust dus')
+p pack_basket(23, 'dust9dust dust 25 dust dust 50 dust9dust dust 76 dust3dustdust dust 123 dust dust 131 dust56dust dust 128 dust56dust dust 183 dust9dust dust 13 dust dust 143 dust9dust dust 159 dust3dustdust dust 63 dust3dustdust dust 190 dust3dustdust dus')
 
 =begin
 def pack_basket(basket,pile)
