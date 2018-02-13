@@ -32,6 +32,6 @@ next_bigger(2071)
 
 =begin
 def next_bigger(n)
-  n.to_s.chars.permutation.map { |i| i.join.to_i }.find { |i| i > n }
+  n.to_s.chars.permutation.map(&:to_i).find { |i| i > n }
 end
 =end
