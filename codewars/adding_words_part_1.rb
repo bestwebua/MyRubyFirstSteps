@@ -10,6 +10,7 @@ class Arith
   def initialize(number)
     @number = number
   end
+
   def add(arg)
     dict = %w(zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty).each_with_index.to_h
     dict.key(dict[@number]+dict[arg])
