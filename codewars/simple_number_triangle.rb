@@ -33,6 +33,7 @@ end
 solve(5)
 
 =begin
+# Double for solution
 def solve(n)
   result = Array.new(n) { |item| [1] }
     for i in 1...n
