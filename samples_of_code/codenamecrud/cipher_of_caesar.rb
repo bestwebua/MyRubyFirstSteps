@@ -1,5 +1,5 @@
 =begin
-Cipher of Caesar by Vladislav Trotsenko.
+Project 1 - Cipher of Caesar by Vladislav Trotsenko.
 
 caesar_cipher('What a string!', 5)
 => "Bmfy f xywnsl!"
