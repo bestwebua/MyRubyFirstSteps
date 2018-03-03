@@ -18,12 +18,11 @@ def movingShift(s, shift)
   result
 end
 
-#p movingShift(' I should have known that you would have a perfect answer for me!!!', 1)
-
+movingShift(' uoxIirmoveNreefckgieaoiEcooqo', 2)
 
 def demovingShift(arr, shift)
   dict, s = ('a'..'z').to_a, arr.join
-    shift = s.size*shift
+    shift = s.size+shift-1
       s.chars.reverse_each.map.with_index do |char, index|
         unless char[/[a-zA-Z]/].nil?
           tmp_char = dict.rotate(index-shift)[dict.index(char.downcase)]
@@ -34,4 +33,5 @@ def demovingShift(arr, shift)
       end.reverse.join
 end
 
-#p demovingShift(["J vltasl rlhr ", "zdfog odxr ypw", " atasl rlhr p ", "gwkzzyq zntyhv", " lvz wp!!!"], 1)
+demovingShift([" xscOp", "zvygqA", "ftuwud", "adaxmh", "Edqrut"], 2)
+demovingShift(["J vltasl rlhr ", "zdfog odxr ypw", " atasl rlhr p ", "gwkzzyq zntyhv", " lvz wp!!!"], 1)
