@@ -16,8 +16,17 @@ Make sure your method can handle multiple words.
 
 def substrings(string, dictionary)
   result = Hash.new(0)
-    dictionary.each { |item| string.scan(/#{item}/i) { result[item]+=1 } }
+    dictionary.each { |item| result[item]+=string.scan(/#{item}/i).size }
   result
 end
 
-p substrings("Howdy partner, sit down! How's it going?", ['below','down','go','going','horn','how','howdy','it','i','low','own','part','partner','sit'])
+substrings("Howdy partner, sit down! How's it going?", ['below','down','go','going','horn','how','howdy','it','i','low','own','part','partner','sit'])
+
+=begin
+# Before refactoring code:
+def substrings(string, dictionary)
+  result = Hash.new(0)
+    dictionary.each { |item| string.scan(/#{item}/i) { result[item]+=1 } }
+  result
+end
+=end
