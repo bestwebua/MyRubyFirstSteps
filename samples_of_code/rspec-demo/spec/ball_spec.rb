@@ -13,7 +13,7 @@ describe Ball do
     expect(ball.y).to eq(2)
   end
 
-  context "#move_to" do
+  context '#move_to' do
     it "direction right - correlate x+1" do
       ball = Ball.new(1,2)
       ball.move_to :right
