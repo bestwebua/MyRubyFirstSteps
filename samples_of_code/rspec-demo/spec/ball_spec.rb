@@ -2,7 +2,7 @@ require 'spec_helper'
 require_relative '../lib/ball'
 
 describe Ball do
-  it 'instance in class Ball' do
+  it 'instance of class Ball' do
     ball = Ball.new
     expect(ball).to be_an_instance_of(Ball)
   end
