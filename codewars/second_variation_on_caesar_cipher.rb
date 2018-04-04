@@ -29,9 +29,10 @@ end
 
 encode_str('I should have known that you would have a perfect answer for me!!!', 1)
 
-=begin
-def decode(arr, shift)
-  dict, s = ('a'..'z').to_a, arr.join
+
+def decode(arr)
+  dict, s = ('a'..'z').to_a, arr[2..-1].join
+  shift = 1 #dict.index(arr[1])-dict.index(arr[0])
     shift = s.size+shift-1
       s.chars.reverse_each.map.with_index do |char, index|
         unless char[/[a-zA-Z]/].nil?
@@ -43,5 +44,4 @@ def decode(arr, shift)
       end.reverse.join
 end
 
-p encode_str('I should have known that you would have a perfect answer for me!!!', 1)
-=end
+p decode(["ijJ tipvme ibw", "f lopxo uibu z", "pv xpvme ibwf ", "b qfsgfdu botx", "fs gps nf!!!"])
