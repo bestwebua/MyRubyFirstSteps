@@ -28,8 +28,8 @@ require 'nokogiri'
 require 'open-uri'
 
 class LeaderboardArray < Array
-  def size
-    length-1
+  def [](index)
+    super(index-1)
   end
 end
 
@@ -42,7 +42,7 @@ class Leaderboard
       page = Nokogiri::HTML(open(url))
       rows = page.css("[class='leaderboard pan'] > table > tr")
 
-        rows.each do |row|
+        rows.drop(1).each do |row|
           name = row.css('a').text
           clan = row.css('td[3]').text
           honor = row.css('td[4]').text.to_i
