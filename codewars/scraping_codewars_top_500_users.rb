@@ -33,6 +33,47 @@ class LeaderboardArray < Array
   end
 end
 
+class Leaderboard
+  def self.build
+    Struct.new('Warrior', :name, :clan, :honor)
+    @@leaderboard = LeaderboardArray.new
+
+      url = 'https://www.codewars.com/users/leaderboard'
+      page = Nokogiri::HTML(open(url))
+      rows = page.css("[class='leaderboard pan'] > table > tr")
+
+        rows.each do |row|
+          name = row.css('a').text
+          clan = row.css('td[3]').text
+          honor = row.css('td[4]').text.to_i
+          @@leaderboard << Struct::Warrior.new(name, clan, honor)
+        end
+
+    @@leaderboard
+  end
+
+  def self.position
+    @@leaderboard ||= self.build
+  end
+end
+
+def solution
+  Leaderboard
+end
+
+solution.position
+
+=begin
+# With class instead struct
+require 'nokogiri'
+require 'open-uri'
+
+class LeaderboardArray < Array
+  def size
+    length-1
+  end
+end
+
 class User
   attr_reader :name, :clan, :honor
 
@@ -64,5 +105,4 @@ end
 def solution
   Leaderboard
 end
-
-solution.position
+=end
