@@ -1,5 +1,5 @@
 =begin
-Scraping: Codewars Top 500 Users by VLadislav Trotsenko.
+Scraping: Codewars Top 500 Users by Vladislav Trotsenko.
 
 You should get and parse the html of the codewars leaderboard page.
 
