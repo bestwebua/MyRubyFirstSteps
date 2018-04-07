@@ -35,7 +35,7 @@ end
 
 class Leaderboard
   def self.build
-    Struct.new('Warrior', :name, :clan, :honor)
+    Struct.new('User', :name, :clan, :honor)
     @@leaderboard = LeaderboardArray.new
 
       url = 'https://www.codewars.com/users/leaderboard'
@@ -46,7 +46,7 @@ class Leaderboard
           name = row.css('a').text
           clan = row.css('td[3]').text
           honor = row.css('td[4]').text.to_i
-          @@leaderboard << Struct::Warrior.new(name, clan, honor)
+          @@leaderboard << Struct::User.new(name, clan, honor)
         end
 
     @@leaderboard
