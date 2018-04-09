@@ -18,7 +18,7 @@ spacing and special characters ~#$%^&!@*():;"'.,? all intact.
 =end
 
 def string_clean(string)
-  string.gsub(/\d+/, '')
+  string.gsub(/\d/, '')
 end
 
 =begin
