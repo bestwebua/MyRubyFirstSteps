@@ -29,8 +29,7 @@ end
 
 players = (1..6).map { |player| Player.new(['paper', 'rock', 'scissors'].sample) }
 players.each_slice(2) { |player1, player2| player1.lets_beat(player2) }
-
-p players.select(&:winner)
+players.select(&:winner)
 
 =begin
 def rps(p1, p2)
