@@ -20,8 +20,7 @@ def increment_string(input)
   input.sub(/\d*\z/) { |char| char.empty? ? 1 : char.next }
 end
 
-increment_string('a0001001')
-
+increment_string('test1')
 
 =begin
 def increment_string(input)
