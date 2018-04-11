@@ -17,13 +17,17 @@ Attention: If the number has leading zeros the amount of digits should be consid
 =end
 
 def increment_string(input)
-  input[/\d\z/] ? input.sub(/(\d+)\z/) { $1.next } : input + '1'
+  input.sub(/\d\z/) { |char| char.empty? ? 1 : char.next }
 end
 
-increment_string(' 1')
+increment_string('a0001001')
 
 
 =begin
+def increment_string(input)
+  input[/\d\z/] ? input.sub(/(\d+)\z/) { $1.next } : input + '1'
+end
+
 def increment_string(input)
   pattern = /(.*\D)(\d+)?/
     if !input[/\d+/].nil? && input.size == input[/\d+/].size
