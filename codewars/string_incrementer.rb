@@ -17,7 +17,7 @@ Attention: If the number has leading zeros the amount of digits should be consid
 =end
 
 def increment_string(input)
-  input.sub(/\d\z/) { |char| char.empty? ? 1 : char.next }
+  input.sub(/\d*\z/) { |char| char.empty? ? 1 : char.next }
 end
 
 increment_string('a0001001')
