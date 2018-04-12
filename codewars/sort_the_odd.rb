@@ -13,14 +13,19 @@ sort_array([5, 3, 2, 8, 1, 4]) == [1, 3, 2, 8, 5, 4]
 =end
 
 def sort_array(source_array)
-  odds = source_array.select(&:odd?).sort
-  source_array.map { |item| item.odd? ? odds.shift : item }
+  odds = source_array.select(&:odd?).sort.each
+  source_array.map { |item| item.odd? ? odds.next : item }
 end
 
 sort_array([5, 3, 2, 8, 1, 4])
 
 
 =begin
+def sort_array(source_array)
+  odds = source_array.select(&:odd?).sort
+  source_array.map { |item| item.odd? ? odds.shift : item }
+end
+
 def sort_array(source_array)
   data = source_array.map.with_index { |item, index| [index, item] if item.odd? }.compact.to_h
     indexes, odds = data.keys, data.values.sort
