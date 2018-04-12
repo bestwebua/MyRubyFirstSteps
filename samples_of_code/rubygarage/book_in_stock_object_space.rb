@@ -10,6 +10,6 @@ class BookInStock
   end
 end
 
-5.times{ BookInStock.new('The Great Gatsby', 'F. Scott Fitzgerald', 8.99) }
+5.times { BookInStock.new('The Great Gatsby', 'F. Scott Fitzgerald', 8.99) }
 
 BookInStock.statistics # => Count of books: 5
