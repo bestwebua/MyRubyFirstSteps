@@ -16,12 +16,16 @@ rgb(148, 0, 211) # returns 9400D3
 =end
 
 def rgb(*rgb)
-  rgb.map { |i| [0, i, 255].sort[1].to_s(16).upcase.ljust(2, '0') }.join
+  rgb.map { |i| i.clamp(0, 255).to_s(16).upcase.ljust(2, '0') }.join
 end
 
 rgb(148, 0, 211)
 
 =begin
+def rgb(*rgb)
+  rgb.map { |i| [0, i, 255].sort[1].to_s(16).upcase.ljust(2, '0') }.join
+end
+
 def rgb(*rgb)
   rgb.map { |i| i.positive? ? i > 255 ? 255 : i : 0  }.map { |i| i.to_s(16).upcase.ljust(2, '0') }.join
 end
