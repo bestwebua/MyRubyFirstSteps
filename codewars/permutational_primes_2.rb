@@ -6,4 +6,3 @@ Permutational Primes II by Vladislav Trotsenko.
 def permutational_primes(nMax, permutes)
   
 end
-
