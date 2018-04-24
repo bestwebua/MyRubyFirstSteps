@@ -21,3 +21,9 @@ def duplicate_encode(word)
 end
 
 duplicate_encode('Success')
+
+=begin
+def duplicate_encode(word)
+  word.downcase.gsub(/./) { |char| word.downcase.count(char) > 1 ? ')' : '(' }
+end
+=end
