@@ -13,6 +13,14 @@ unique_in_order([1,2,2,3,3])       == [1,2,3]
 =end
 
 def unique_in_order(data)
+  (data.is_a?(Array) ? data : data.chars).chunk(&:itself).map(&:first)
+end
+
+unique_in_order([1,2,3,1,1])
+
+=begin
+# before refactoring code
+def unique_in_order(data)
   data = data.is_a?(Array) ? data : data.chars
   result, arr = [], []
     data.each_with_index do |item, index|
@@ -27,5 +35,4 @@ def unique_in_order(data)
     end
   result.map(&:uniq).flatten
 end
-
-unique_in_order([1,2,3,1,1])
+=end
