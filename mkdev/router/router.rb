@@ -12,8 +12,7 @@ class Router
     end
 
     def call(env)
-      request_path = env['PATH_INFO']
-      path_route = resolver.path_route(request_path)
+      path_route = resolver.path_route(env['PATH_INFO'])
       params = resolver.params
       route = [env['REQUEST_METHOD'], path_route]
       method_to_call = resolver.fetch(route)
