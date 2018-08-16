@@ -5,7 +5,7 @@ require 'mustermann'
 
 class Router
   class App
-    attr_reader :resolver, :params
+    attr_reader :resolver
 
     def initialize(resolver)
       @resolver = resolver
@@ -13,17 +13,13 @@ class Router
 
     def call(env)
       request_path = env['PATH_INFO']
-
-      path_route = resolver.patterns.find do |pattern|
-        pattern === request_path
-        @params = pattern.params(request_path)
-      end.to_s
-
+      path_route = resolver.path_route(request_path)
+      params = resolver.params
       route = [env['REQUEST_METHOD'], path_route]
       method_to_call = resolver.fetch(route)
 
       result =
-        if params?
+        if !params.empty?
           Object.public_send(method_to_call, params)
         else
           Object.public_send(method_to_call)
@@ -31,17 +27,12 @@ class Router
 
       ['200', {}, [result]]
     end
-
-    private
-
-    def params?
-      !params.empty?
-    end
   end
 end
 
 class Router
   class Resolver
+    attr_reader :params
     attr_accessor :routes, :patterns
 
     def initialize
@@ -51,10 +42,18 @@ class Router
 
     def push(key, value)
       routes[key] = value
+      patterns << Mustermann.new(key.last, type: :rails)
     end
 
     def fetch(route)
       routes[route]
+    end
+
+    def path_route(request_path)
+      patterns.find do |pattern|
+        pattern === request_path
+        @params = pattern.params(request_path)
+      end.to_s
     end
   end
 end
@@ -78,7 +77,6 @@ class Router
   def add_route(request_method, path_route, **args)
     return unless args[:to]
     method_to_call = args[:to]
-    resolver.patterns << Mustermann.new(path_route, type: :rails)
     resolver.push([request_method, path_route], method_to_call)
   end
 
