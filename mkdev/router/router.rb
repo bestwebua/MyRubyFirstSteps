@@ -18,7 +18,7 @@ class Router
       method_to_call = resolver.fetch(route)
 
       result =
-        if !params.empty?
+        if params && !params.empty?
           Object.public_send(method_to_call, params)
         else
           Object.public_send(method_to_call)
