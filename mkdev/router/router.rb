@@ -31,21 +31,22 @@ end
 
 class Router
   class Resolver
-    attr_reader :params
-    attr_accessor :routes, :patterns
+    # attr_reader :params
+    # attr_accessor :routes, :patterns
 
     def initialize
-      @routes = {}
-      @patterns = []
+      @routes = Hash.new do |routes, request_method|
+        routes[request_method] = []
+      end
     end
 
-    def push(key, value)
-      routes[key] = value
-      patterns << Mustermann.new(key.last, type: :rails)
+    def push(request_method, path_route, method_to_call)
+      route_data = { pattern(path_route) => method_to_call }
+      routes[request_method].push(route_data)
     end
 
-    def fetch(route)
-      routes[route]
+    def fetch(request_method, request_path)
+      routes[request_method].find { |pattern, _| pattern === request_path }
     end
 
     def path_route(request_path)
@@ -53,6 +54,12 @@ class Router
         pattern === request_path
         @params = pattern.params(request_path)
       end.to_s
+    end
+
+    private
+
+    def pattern(path_route)
+      Mustermann.new(path_route, type: :rails)
     end
   end
 end
@@ -76,7 +83,7 @@ class Router
   def add_route(request_method, path_route, **args)
     return unless args[:to]
     method_to_call = args[:to]
-    resolver.push([request_method, path_route], method_to_call)
+    resolver.push(request_method, path_route, method_to_call)
   end
 
   def resolve(request_method, path_route)
