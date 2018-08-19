@@ -1,6 +1,6 @@
 class Router
   class Resolver
-    ROUTE_NOT_FOUND = 'Route not found, checkout your Router instance.'
+    ROUTE_NOT_FOUND = 'Route not found, checkout your Router instance.'.freeze
     attr_accessor :routes
 
     def initialize
