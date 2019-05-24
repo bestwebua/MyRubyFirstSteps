@@ -63,33 +63,31 @@ class User
   end
 
   def rank
-    return RANGE_OF_RANK.last if index > RANGE_OF_RANK.size-1
+    return max_rank if index > RANGE_OF_RANK.size-1
     RANGE_OF_RANK[index]
   end
 
   def inc_progress(activity_rank)
     raise if !RANGE_OF_RANK.include?(activity_rank)
-
     @progress += new_progress(activity_rank)
     @index += progress / 100
-    @progress %= 100
+    @progress = rank == max_rank ? 0 : progress % 100
   end
 
   private
 
+  def max_rank
+    RANGE_OF_RANK.last
+  end
+
   def new_progress(activity_rank)
-    rank_difference = (activity_rank-rank).abs
+    rank_difference = (RANGE_OF_RANK.index(activity_rank) - index).abs
 
     case
     when activity_rank < rank && rank_difference == 1 then 1
     when activity_rank == rank then 3
-    when activity_rank > rank then 10*rank_difference**2
-    else 0
+    when activity_rank > rank && activity_rank then 10*rank_difference**2
+    else DEFAULT_VALUE
     end
   end
 end
-
-user = User.new
-user.inc_progress(-7)
-user.inc_progress(-5)
-p user
